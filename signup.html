@@ -567,8 +567,9 @@
 
             function validateEmail() {
                 const val = email.value.trim();
-                const isValid = val.length > 0;
-                updateFieldUI(email, document.getElementById('emailError'), isValid, "Please enter an email address.");
+                const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
+                const isValid = gmailRegex.test(val);
+                updateFieldUI(email, document.getElementById('emailError'), isValid, "Please enter a valid Gmail address (e.g., example@gmail.com).");
                 return isValid;
             }
 
